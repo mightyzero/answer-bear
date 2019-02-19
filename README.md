@@ -1,0 +1,1 @@
+AnswerBear service provides an API takes a comment and does its bearest to return an intelligent response.
