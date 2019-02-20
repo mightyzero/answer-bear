@@ -10,8 +10,8 @@ def hello():
 
 @app.route("/", methods=['POST'])
 def reply():
-    comment = request.get_json()['comment']
-    resp = "You said: {}. I don't know how to respond to that, I'm just a bear!".format(comment)
+    # comment: str = request.get_json()['comment']
+    resp = "I don't know how to respond to that, I'm just a bear!"
 
     return jsonify(reply=resp), 400
 
