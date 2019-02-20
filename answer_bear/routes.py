@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, Response
 
-from answer_bear import app
+from flask import Flask
+
+app = Flask(__name__)
 
 
 @app.route("/", methods=['GET'])
