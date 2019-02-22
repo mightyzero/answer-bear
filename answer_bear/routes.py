@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask import jsonify
 from flask_cors import CORS, cross_origin
 
+FAREWELLS = ['bye', 'good bye', 'goodbye', 'byebye', 'bye bye', 'seeya', 'cya', 'farewell', 'fare thee well']
 GREETINGS = ['hi', 'hello', 'what\'s up', 'wassup', 'hiz', 'hizz', 'hizzz']
 
 app = Flask(__name__)
@@ -26,6 +27,8 @@ def reply():
     resp = "I don't know how to respond to that, I'm just a bear!"
     if comment.lower().strip() in GREETINGS:
         resp = 'Hi! I\'m Bear. How can this bear be of service to you? Ask me something.'
+    elif comment.lower().strip() in FAREWELLS:
+        resp = 'Bye bye! Come to this bear for answers again! I give free bear hugs!'
     elif 'hoax' in comment and 'environment' in comment:
         resp = """Global warming is happening and human is contributing to it.
         
