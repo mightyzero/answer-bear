@@ -9,6 +9,9 @@ verify_ssl = true
 flask = "*"
 gunicorn = "*"
 flask-cors = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+gensim = "*"
 
 [requires]
 python_version = "3.7"
