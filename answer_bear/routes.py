@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, request
 from flask import jsonify
 from flask_cors import CORS, cross_origin
@@ -36,5 +38,7 @@ def reply():
         Link 2: https://www.livescience.com/topics/global-warming
         Link 3: https://www.nationalgeographic.com/environment/global-warming/global-warming-effects
         """
+    elif os.path.isfile('d2v_model.model'):
+        resp = "Let me look in my magical pouch!"
 
     return jsonify(reply=resp)

@@ -1,6 +1,8 @@
+import os
+
 from gensim.models import doc2vec
 from gensim.parsing import preprocess_string
-from scraper import *
+from illumination.scraper import *
 
 def scrape(testing = False):
     """
@@ -33,6 +35,22 @@ def find_similar(doc, model, *args, **kwargs):
     inferred_vector = model.infer_vector(cleaned_doc)
     sims = model.docvecs.most_similar([inferred_vector], **kwargs)
     return sims
+
+class ModelBuilder:
+    def __init__(self):
+        pass
+
+    def build_model(self):
+        if os.path.isfile("d2v_model.model"):
+            print('Model already exists -> Skip scraping')
+            return
+
+        print('Model NOT already exists -> scraping!!!')
+        _corpus = Corpus(testing=True)
+        _model = build_from_corpus(_corpus, vector_size=50, min_count=3, epochs=10)
+        _fname = "d2v_model.model"
+        _model.save(_fname)
+
 
 if __name__ == '__main__':
     corpus = Corpus(testing=True)
