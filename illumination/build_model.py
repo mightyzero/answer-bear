@@ -46,7 +46,7 @@ class ModelBuilder:
             return
 
         print('Model NOT already exists -> scraping!!!')
-        _corpus = Corpus(testing=True)
+        _corpus = Corpus(testing=False)
         _model = build_from_corpus(_corpus, vector_size=50, min_count=3, epochs=10)
         _fname = "d2v_model.model"
         _model.save(_fname)
