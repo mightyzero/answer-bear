@@ -16,6 +16,9 @@ def hello():
 @app.route("/", methods=['POST'])
 @cross_origin()
 def reply():
+    app.logger.debug('Headers: %s', request.headers)
+    app.logger.debug('Body: %s', request.get_data())
+
     comment: str = request.get_json()['comment']
 
     resp = "I don't know how to respond to that, I'm just a bear!"
